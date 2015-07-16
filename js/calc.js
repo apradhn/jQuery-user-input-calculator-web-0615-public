@@ -9,28 +9,47 @@ function Calculator() {
   var numberOne = $("#number1"), numberTwo = $("#number2"), operation = $("#operation"), equals = $("#equals"), result = $("#result");
   var value, numberError = "Sorry, one of those is not a valid number!", operatorError = 'Sorry, not a valid operation!';
   resultValue = result.text();
-  var one, two, operator;
+  var one, two, operator, calculation;
   var symbols = ["+", "-", "/", "*"];
 
-  equals.click(function() {
-    one = numberOne.val(), two = numberTwo.val(), operator = operation.val();
-    console.log(one);
-    if (invalidNumber(one) === true || invalidNumber(two) === true) { 
-      result.text(numberError); 
-    } else if (invalidOperator(operator) === true) {
-      result.text(operatorError);
-    } else {
-      result.text(resultValue);
-    }
-  });
+  var add = function(a, b) { return a + b; }
+  var subtract = function(a, b) { return a - b; }
+  var divide = function(a, b) { return a / b; }
+  var multiply = function(a, b) { return a * b; }
 
-  function invalidNumber(value) {
-    return isNaN(parseInt(value));
+  function getOperation(operator) {
+    switch(operator) {
+      case "+": 
+        return add;
+      case "-": 
+        return subtract;
+      case "/":
+        return divide;
+      case "*":
+        return multiply;
+      default: 
+      return "Something's not right...";
+    }
+  }
+
+  function calculate(a, b, operation) {
+    return operation(a, b);
   }
 
   function invalidOperator(operator) {
-    return !(symbols.some(function(sym) { 
-      return sym === operator; 
-    }));
-  }
+    return !(symbols.some(function(sym) { return sym === operator; }));
+  }  
+
+  equals.click(function() {
+    one = parseInt(numberOne.val()), two = parseInt(numberTwo.val()), operator = operation.val();
+    console.log(one);
+    if (isNaN(one) === true || isNaN(two) === true) { result.text(numberError); } 
+    else if (invalidOperator(operator) === true) { result.text(operatorError); } 
+    else {
+      calculation = calculate(one, two, getOperation(operator));
+      result.text(calculation);
+    }
+  });
+
+
 }

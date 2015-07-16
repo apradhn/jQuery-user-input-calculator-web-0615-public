@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+	<testsuite tests="8" errors="0" failures="0" time="0.03" timestamp="2015-07-16T16:00:42">
+		<testcase classname="Calculator" name="validating inputs validates numbers should validate the first numerical input and display an error if they are not a number" time="0.011">
+		</testcase>
+		<testcase classname="Calculator" name="validating inputs validates numbers should validate the second numerical input and display an error if they are not a number" time="0.003">
+		</testcase>
+		<testcase classname="Calculator" name="validating inputs validates operators should validate that a +, -, /, or * was used" time="0.002">
+		</testcase>
+		<testcase classname="Calculator" name="validating inputs validates operators should validate that only one +, -, /, or * was used" time="0.002">
+		</testcase>
+		<testcase classname="Calculator" name="Does math should be able to add" time="0.003">
+		</testcase>
+		<testcase classname="Calculator" name="Does math should be able to subtract" time="0.002">
+		</testcase>
+		<testcase classname="Calculator" name="Does math should be able to divide" time="0.003">
+		</testcase>
+		<testcase classname="Calculator" name="Does math should be able to multiply" time="0.002">
+		</testcase>
+	</testsuite>
+</testsuites>
+

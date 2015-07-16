@@ -32,9 +32,7 @@ function Calculator() {
     }
   }
 
-  function calculate(a, b, operation) {
-    return operation(a, b);
-  }
+  function calculate(a, b, operation) { return operation(a, b); }
 
   function invalidOperator(operator) {
     return !(symbols.some(function(sym) { return sym === operator; }));
@@ -50,6 +48,5 @@ function Calculator() {
       result.text(calculation);
     }
   });
-
 
 }
